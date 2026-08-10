@@ -68,7 +68,6 @@ function pesquisarPaciente($consultas, $nome) {
     return $resultado;
 }
 
-
 function verificarHorariosDuplicados($consultas) {
     $horarios = [];
     $duplicados = [];
@@ -85,4 +84,21 @@ function verificarHorariosDuplicados($consultas) {
     }
 
     return array_unique($duplicados);
+}
+function organizarAgenda($consultas, $pacientePesquisado) {
+
+    $consultasOrdenadas = ordenarHorarios($consultas);
+
+    $resultado = [
+        "Quantidade total de consultas" => contarConsultas($consultas),
+        "Quantidade de pacientes diferentes" => contarPacientesDiferentes($consultas),
+        "Consultas por especialidade" => contarEspecialidades($consultas),
+        "Primeiro atendimento" => primeiroAtendimento($consultas),
+        "Último atendimento" => ultimoAtendimento($consultas),
+        "Lista ordenada pelo horário" => $consultasOrdenadas,
+        "Pesquisa do paciente" => pesquisarPaciente($consultas, $pacientePesquisado),
+        "Horários duplicados" => verificarHorariosDuplicados($consultas)
+    ];
+
+    return $resultado;
 }

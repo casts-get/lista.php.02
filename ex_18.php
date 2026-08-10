@@ -32,3 +32,11 @@ function contarEspecialidades($consultas) {
 
     return $especialidades;
 }
+
+function ordenarHorarios($consultas) {
+    usort($consultas, function($a, $b) {
+        return strcmp($a["horario"], $b["horario"]);
+    });
+
+    return $consultas;
+}

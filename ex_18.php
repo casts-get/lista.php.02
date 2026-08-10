@@ -15,3 +15,20 @@ function contarPacientesDiferentes($consultas) {
 
     return count($pacientes);
 }
+
+function contarEspecialidades($consultas) {
+    $especialidades = [];
+
+    foreach ($consultas as $consulta) {
+
+        $especialidade = $consulta["especialidade"];
+
+        if (isset($especialidades[$especialidade])) {
+            $especialidades[$especialidade]++;
+        } else {
+            $especialidades[$especialidade] = 1;
+        }
+    }
+
+    return $especialidades;
+}

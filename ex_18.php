@@ -102,3 +102,40 @@ function organizarAgenda($consultas, $pacientePesquisado) {
 
     return $resultado;
 }
+$consultas = [
+    [
+        "paciente" => "Carine",
+        "especialidade" => "Cardiologia",
+        "data" => "10/08/2026",
+        "horario" => "08:00"
+    ],
+
+    [
+        "paciente" => "Ana",
+        "especialidade" => "Dermatologia",
+        "data" => "10/08/2026",
+        "horario" => "09:30"
+    ],
+
+    [
+        "paciente" => "Gabriela",
+        "especialidade" => "Cardiologia",
+        "data" => "10/08/2026",
+        "horario" => "10:00"
+    ],
+
+    [
+        "paciente" => "Amanda",
+        "especialidade" => "Pediatria",
+        "data" => "10/08/2026",
+        "horario" => "09:30"
+    ]
+];
+
+$nome = "Carine";
+
+$resultado = organizarAgenda($consultas, $nome);
+
+print_r($resultado);
+
+?>

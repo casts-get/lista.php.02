@@ -67,3 +67,22 @@ function pesquisarPaciente($consultas, $nome) {
 
     return $resultado;
 }
+
+
+function verificarHorariosDuplicados($consultas) {
+    $horarios = [];
+    $duplicados = [];
+
+    foreach ($consultas as $consulta) {
+
+        $horario = $consulta["horario"];
+
+        if (isset($horarios[$horario])) {
+            $duplicados[] = $horario;
+        } else {
+            $horarios[$horario] = 1;
+        }
+    }
+
+    return array_unique($duplicados);
+}

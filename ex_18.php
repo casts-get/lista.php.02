@@ -40,3 +40,17 @@ function ordenarHorarios($consultas) {
 
     return $consultas;
 }
+
+function primeiroAtendimento($consultas) {
+    $consultas = ordenarHorarios($consultas);
+
+    return $consultas[0];
+}
+
+function ultimoAtendimento($consultas) {
+    $consultas = ordenarHorarios($consultas);
+
+    $ultima = count($consultas) - 1;
+
+    return $consultas[$ultima];
+}

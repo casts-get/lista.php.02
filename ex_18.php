@@ -54,3 +54,16 @@ function ultimoAtendimento($consultas) {
 
     return $consultas[$ultima];
 }
+
+function pesquisarPaciente($consultas, $nome) {
+    $resultado = [];
+
+    foreach ($consultas as $consulta) {
+
+        if (strtolower($consulta["paciente"]) == strtolower($nome)) {
+            $resultado[] = $consulta;
+        }
+    }
+
+    return $resultado;
+}
